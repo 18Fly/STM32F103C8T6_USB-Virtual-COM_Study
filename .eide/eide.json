@@ -1,0 +1,290 @@
+{
+  "name": "STM32F103C8T6_USB-Virtual-COM_Study",
+  "version": "3.5",
+  "type": "ARM",
+  "dependenceList": [],
+  "srcDirs": [
+    "Core",
+    "Drivers/STM32F1xx_HAL_Driver",
+    "startup",
+    "Middlewares/ST/STM32_USB_Device_Library/Core",
+    "Middlewares/ST/STM32_USB_Device_Library/Class/CDC",
+    "USB_DEVICE/App",
+    "USB_DEVICE/Target",
+    "USB_DEVICE",
+    "Middlewares"
+  ],
+  "outDir": "build",
+  "deviceName": null,
+  "packDir": null,
+  "targets": {
+    "Debug": {
+      "excludeList": [],
+      "toolchain": "GCC",
+      "compileConfig": {
+        "cpuType": "Cortex-M3",
+        "floatingPointHardware": "default",
+        "useCustomScatterFile": true,
+        "scatterFilePath": ".\\STM32F103C8Tx_FLASH.ld",
+        "storageLayout": {
+          "RAM": [
+            {
+              "tag": "IRAM",
+              "id": 1,
+              "mem": {
+                "startAddr": "0x20000000",
+                "size": "0x5000"
+              },
+              "isChecked": true,
+              "noInit": false
+            }
+          ],
+          "ROM": [
+            {
+              "tag": "IROM",
+              "id": 1,
+              "mem": {
+                "startAddr": "0x08000000",
+                "size": "0x10000"
+              },
+              "isChecked": true,
+              "isStartup": true
+            }
+          ]
+        },
+        "options": "null"
+      },
+      "uploader": "STLink",
+      "uploadConfig": {
+        "bin": "",
+        "proType": "SWD",
+        "resetMode": "default",
+        "runAfterProgram": true,
+        "speed": 4000,
+        "address": "0x08000000",
+        "elFile": "None",
+        "optionBytes": ".eide/debug.st.option.bytes.ini",
+        "otherCmds": ""
+      },
+      "uploadConfigMap": {
+        "JLink": {
+          "bin": ".\\out\\GCC\\stm32f103_cubeMX_demo.hex",
+          "baseAddr": "0x08000000",
+          "cpuInfo": {
+            "vendor": "ST",
+            "cpuName": "STM32F103C8"
+          },
+          "proType": 1,
+          "speed": 8000,
+          "otherCmds": ""
+        }
+      },
+      "custom_dep": {
+        "name": "default",
+        "incList": [
+          "Drivers/CMSIS/Include",
+          "Drivers/CMSIS/Device/ST/STM32F1xx/Include",
+          "Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc",
+          "Middlewares/ST/STM32_USB_Device_Library/Core/Inc",
+          "USB_DEVICE/App",
+          "USB_DEVICE/Target"
+        ],
+        "libList": [],
+        "defineList": [
+          "USE_HAL_DRIVER",
+          "STM32F103xB",
+          "DEBUG"
+        ]
+      },
+      "builderOptions": {
+        "GCC": {
+          "version": 5,
+          "beforeBuildTasks": [],
+          "afterBuildTasks": [],
+          "global": {
+            "$float-abi-type": "softfp",
+            "output-debug-info": "enable"
+          },
+          "c/cpp-compiler": {
+            "language-c": "c17",
+            "language-cpp": "c++11",
+            "optimization": "level-debug",
+            "warnings": "all-warnings",
+            "C_FLAGS": "-ffunction-sections -fdata-sections",
+            "CXX_FLAGS": "-ffunction-sections -fdata-sections"
+          },
+          "asm-compiler": {
+            "ASM_FLAGS": "-ffunction-sections -fdata-sections"
+          },
+          "linker": {
+            "LD_FLAGS": "--specs=nosys.specs --specs=nano.specs -Wl,--gc-sections",
+            "$toolName": "auto",
+            "output-format": "elf"
+          }
+        },
+        "AC5": {
+          "version": 1,
+          "beforeBuildTasks": [],
+          "afterBuildTasks": [],
+          "global": {
+            "use-microLIB": false
+          },
+          "c/cpp-compiler": {
+            "optimization": "level-0",
+            "one-elf-section-per-function": true,
+            "c99-mode": true,
+            "misc-controls": [
+              "--diag_suppress=1",
+              "--diag_suppress=1295"
+            ]
+          },
+          "asm-compiler": {},
+          "linker": {}
+        }
+      }
+    },
+    "Release": {
+      "excludeList": [
+        "Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc_if_template.c",
+        "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_timebase_tim_template.c",
+        "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_timebase_rtc_alarm_template.c",
+        "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_msp_template.c",
+        "Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_desc_template.c",
+        "Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_conf_template.c"
+      ],
+      "toolchain": "GCC",
+      "compileConfig": {
+        "cpuType": "Cortex-M3",
+        "floatingPointHardware": "default",
+        "useCustomScatterFile": true,
+        "scatterFilePath": ".\\STM32F103C8Tx_FLASH.ld",
+        "storageLayout": {
+          "RAM": [
+            {
+              "tag": "IRAM",
+              "id": 1,
+              "mem": {
+                "startAddr": "0x20000000",
+                "size": "0x5000"
+              },
+              "isChecked": true,
+              "noInit": false
+            }
+          ],
+          "ROM": [
+            {
+              "tag": "IROM",
+              "id": 1,
+              "mem": {
+                "startAddr": "0x08000000",
+                "size": "0x10000"
+              },
+              "isChecked": true,
+              "isStartup": true
+            }
+          ]
+        },
+        "options": "null"
+      },
+      "uploader": "STLink",
+      "uploadConfig": {
+        "bin": "",
+        "proType": "SWD",
+        "resetMode": "default",
+        "runAfterProgram": true,
+        "speed": 4000,
+        "address": "0x08000000",
+        "elFile": "None",
+        "optionBytes": ".eide/release.st.option.bytes.ini",
+        "otherCmds": ""
+      },
+      "uploadConfigMap": {
+        "JLink": {
+          "bin": ".\\out\\GCC\\stm32f103_cubeMX_demo.hex",
+          "baseAddr": "0x08000000",
+          "cpuInfo": {
+            "vendor": "ST",
+            "cpuName": "STM32F103C8"
+          },
+          "proType": 1,
+          "speed": 8000,
+          "otherCmds": ""
+        }
+      },
+      "custom_dep": {
+        "name": "default",
+        "incList": [
+          "Drivers/CMSIS/Include",
+          "Drivers/CMSIS/Device/ST/STM32F1xx/Include",
+          "Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc",
+          "Middlewares/ST/STM32_USB_Device_Library/Core/Inc",
+          "USB_DEVICE/App",
+          "USB_DEVICE/Target",
+          "Drivers/STM32F1xx_HAL_Driver/Inc"
+        ],
+        "libList": [],
+        "defineList": [
+          "USE_HAL_DRIVER",
+          "STM32F103xB",
+          "NDEBUG"
+        ]
+      },
+      "builderOptions": {
+        "GCC": {
+          "version": 5,
+          "beforeBuildTasks": [],
+          "afterBuildTasks": [],
+          "global": {
+            "$float-abi-type": "softfp",
+            "output-debug-info": "enable"
+          },
+          "c/cpp-compiler": {
+            "language-c": "c17",
+            "language-cpp": "c++11",
+            "optimization": "level-3",
+            "warnings": "all-warnings",
+            "C_FLAGS": "-ffunction-sections -fdata-sections",
+            "CXX_FLAGS": "-ffunction-sections -fdata-sections",
+            "one-elf-section-per-function": true,
+            "one-elf-section-per-data": true
+          },
+          "asm-compiler": {
+            "ASM_FLAGS": "-ffunction-sections -fdata-sections"
+          },
+          "linker": {
+            "LD_FLAGS": "--specs=nosys.specs --specs=nano.specs -Wl,--gc-sections",
+            "$toolName": "auto",
+            "output-format": "elf"
+          }
+        },
+        "AC5": {
+          "version": 1,
+          "beforeBuildTasks": [],
+          "afterBuildTasks": [],
+          "global": {
+            "use-microLIB": false
+          },
+          "c/cpp-compiler": {
+            "optimization": "level-0",
+            "one-elf-section-per-function": true,
+            "c99-mode": true,
+            "misc-controls": [
+              "--diag_suppress=1",
+              "--diag_suppress=1295"
+            ]
+          },
+          "asm-compiler": {},
+          "linker": {}
+        }
+      }
+    }
+  },
+  "virtualFolder": {
+    "name": "<virtual_root>",
+    "files": [],
+    "folders": []
+  },
+  "miscInfo": {
+    "uid": "53402bd4188f634660f1f05060ceea6b"
+  }
+}
